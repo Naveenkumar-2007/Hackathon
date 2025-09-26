@@ -1,0 +1,140 @@
+{
+  "jobs": [
+    {
+      "title": "Product Management Intern",
+      "company": {
+        "display_name": "Zluri"
+      },
+      "location": {
+        "display_name": "Bangalore, Karnataka"
+      },
+      "description": "Product Management internship focusing on user research, market analysis, and product strategy. Work directly with senior PMs on feature development, user interviews, and competitive analysis. Gain hands-on experience in product roadmapping, stakeholder management, and data-driven decision making.",
+      "redirect_url": "https://careers.zluri.com/product-management-intern",
+      "salary_min": 25000,
+      "salary_max": 40000
+    },
+    {
+      "title": "Product Manager Intern - B2B SaaS & GTM",
+      "company": {
+        "display_name": "Loanwiser"
+      },
+      "location": {
+        "display_name": "Coimbatore, Tamil Nadu"
+      },
+      "description": "Product Manager internship in B2B SaaS focusing on go-to-market strategy, customer development, and product-market fit analysis. Work on user onboarding, feature prioritization, and cross-functional collaboration with engineering and sales teams.",
+      "redirect_url": "https://careers.loanwiser.com/product-intern",
+      "salary_min": 20000,
+      "salary_max": 35000
+    },
+    {
+      "title": "Business Analyst Intern",
+      "company": {
+        "display_name": "Optimspace"
+      },
+      "location": {
+        "display_name": "Pune, Maharashtra"
+      },
+      "description": "Business Analyst internship involving requirements gathering, process improvement, data analysis, and stakeholder management. Work with SQL, Excel, and business intelligence tools. Opportunity to work on real client projects and gain exposure to consulting methodologies.",
+      "redirect_url": "https://careers.optimspace.com/business-analyst-intern",
+      "salary_min": 18000,
+      "salary_max": 30000
+    },
+    {
+      "title": "Strategy & Analytics Intern",
+      "company": {
+        "display_name": "Microsoft Corporation"
+      },
+      "location": {
+        "display_name": "Hyderabad, Telangana"
+      },
+      "description": "Strategy and Analytics internship at Microsoft focusing on market research, competitive analysis, business intelligence, and strategic planning. Work with senior strategists on high-impact projects involving data analysis, market sizing, and strategic recommendations.",
+      "redirect_url": "https://careers.microsoft.com/students/us/en/job/1725200/Strategy-Analytics-Intern",
+      "salary_min": 45000,
+      "salary_max": 65000
+    },
+    {
+      "title": "Management Trainee - Operations",
+      "company": {
+        "display_name": "Flipkart"
+      },
+      "location": {
+        "display_name": "Bangalore, Karnataka"
+      },
+      "description": "Management Trainee program in Operations focusing on supply chain optimization, process improvement, vendor management, and operational excellence. Rotate through different functions including logistics, warehousing, and last-mile delivery.",
+      "redirect_url": "https://careers.flipkart.com/management-trainee",
+      "salary_min": 35000,
+      "salary_max": 50000
+    },
+    {
+      "title": "Digital Marketing Intern",
+      "company": {
+        "display_name": "Swiggy"
+      },
+      "location": {
+        "display_name": "Mumbai, Maharashtra"
+      },
+      "description": "Digital Marketing internship covering performance marketing, content strategy, social media management, and growth hacking. Work on campaign optimization, A/B testing, and customer acquisition strategies across multiple digital channels.",
+      "redirect_url": "https://careers.swiggy.com/digital-marketing-intern",
+      "salary_min": 22000,
+      "salary_max": 38000
+    },
+    {
+      "title": "Business Development Intern",
+      "company": {
+        "display_name": "Zomato"
+      },
+      "location": {
+        "display_name": "Delhi, NCR"
+      },
+      "description": "Business Development internship focusing on partnership development, market expansion, and revenue growth. Work on identifying new business opportunities, conducting market research, and supporting strategic initiatives in the food-tech industry.",
+      "redirect_url": "https://careers.zomato.com/business-development-intern",
+      "salary_min": 28000,
+      "salary_max": 42000
+    },
+    {
+      "title": "Data Analyst Intern",
+      "company": {
+        "display_name": "Paytm"
+      },
+      "location": {
+        "display_name": "Noida, Uttar Pradesh"
+      },
+      "description": "Data Analyst internship involving data mining, statistical analysis, dashboard creation, and business insights generation. Work with Python, SQL, Tableau, and advanced analytics to drive data-driven decision making across business functions.",
+      "redirect_url": "https://careers.paytm.com/data-analyst-intern",
+      "salary_min": 30000,
+      "salary_max": 45000
+    },
+    {
+      "title": "Product Marketing Intern",
+      "company": {
+        "display_name": "Razorpay"
+      },
+      "location": {
+        "display_name": "Bangalore, Karnataka"
+      },
+      "description": "Product Marketing internship focusing on go-to-market strategy, competitive intelligence, customer research, and product positioning. Work closely with product and marketing teams to launch new features and drive user adoption.",
+      "redirect_url": "https://careers.razorpay.com/product-marketing-intern",
+      "salary_min": 32000,
+      "salary_max": 48000
+    },
+    {
+      "title": "Operations Excellence Intern",
+      "company": {
+        "display_name": "Urban Company"
+      },
+      "location": {
+        "display_name": "Gurgaon, Haryana"
+      },
+      "description": "Operations Excellence internship focusing on process optimization, quality improvement, service partner management, and operational analytics. Gain experience in marketplace operations, supply-demand matching, and service delivery optimization.",
+      "redirect_url": "https://careers.urbancompany.com/operations-intern",
+      "salary_min": 26000,
+      "salary_max": 40000
+    }
+  ],
+  "total_count": 10,
+  "search_params": {
+    "keyword": "product management",
+    "location": "india"
+  },
+  "message": "Found 10 internship opportunities"
+}

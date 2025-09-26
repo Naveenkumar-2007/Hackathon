@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Static Internships Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .search-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .search-box input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .search-box button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .job-card {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+        }
+        .job-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .job-company {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .job-location {
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .job-salary {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .job-description {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .apply-button {
+            background: #28a745;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Real Internship Opportunities</h1>
+        <p>This page demonstrates the working static data fallback for your internship search.</p>
+        
+        <div class="search-box">
+            <input type="text" id="keyword" placeholder="Search keyword (e.g., product, analyst)" />
+            <input type="text" id="location" placeholder="Location (e.g., Bangalore, Pune)" />
+            <button onclick="searchJobs()">Search Internships</button>
+            <button onclick="showAll()">Show All</button>
+        </div>
+        
+        <div id="status" class="status" style="display:none;"></div>
+        <div id="loading" class="loading" style="display:none;">Searching internships...</div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let internshipsData = null;
+
+        // Load the static data
+        async function loadInternshipsData() {
+            try {
+                const response = await fetch('./frontend/public/internships.json');
+                internshipsData = await response.json();
+                console.log('Loaded internships data:', internshipsData);
+                return true;
+            } catch (error) {
+                console.error('Failed to load internships data:', error);
+                document.getElementById('status').innerHTML = 'Failed to load internship data.';
+                document.getElementById('status').style.display = 'block';
+                return false;
+            }
+        }
+
+        function displayJobs(jobs) {
+            const resultsDiv = document.getElementById('results');
+            
+            if (!jobs || jobs.length === 0) {
+                resultsDiv.innerHTML = '<p>No internships found matching your criteria.</p>';
+                return;
+            }
+
+            let html = `<h3>Found ${jobs.length} Internship${jobs.length > 1 ? 's' : ''}</h3>`;
+            
+            jobs.forEach(job => {
+                const salaryText = job.salary_min && job.salary_max 
+                    ? `₹${job.salary_min.toLocaleString()} - ₹${job.salary_max.toLocaleString()}/month`
+                    : 'Salary not specified';
+                
+                html += `
+                    <div class="job-card">
+                        <div class="job-title">${job.title}</div>
+                        <div class="job-company">🏢 ${job.company.display_name}</div>
+                        <div class="job-location">📍 ${job.location.display_name}</div>
+                        <div class="job-salary">💰 ${salaryText}</div>
+                        <div class="job-description">${job.description}</div>
+                        <a href="${job.redirect_url}" target="_blank" class="apply-button">Apply Now</a>
+                    </div>
+                `;
+            });
+            
+            resultsDiv.innerHTML = html;
+        }
+
+        async function searchJobs() {
+            const keyword = document.getElementById('keyword').value.trim();
+            const location = document.getElementById('location').value.trim();
+            
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('status').style.display = 'none';
+            
+            // Simulate loading delay
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            if (!internshipsData) {
+                const loaded = await loadInternshipsData();
+                if (!loaded) {
+                    document.getElementById('loading').style.display = 'none';
+                    return;
+                }
+            }
+            
+            let filteredJobs = internshipsData.jobs || [];
+            
+            if (keyword) {
+                const keywordLower = keyword.toLowerCase();
+                filteredJobs = filteredJobs.filter(job => 
+                    job.title.toLowerCase().includes(keywordLower) ||
+                    job.company.display_name.toLowerCase().includes(keywordLower) ||
+                    job.description.toLowerCase().includes(keywordLower)
+                );
+            }
+            
+            if (location) {
+                const locationLower = location.toLowerCase();
+                filteredJobs = filteredJobs.filter(job =>
+                    job.location.display_name.toLowerCase().includes(locationLower)
+                );
+            }
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('status').innerHTML = `✅ Loaded real internship data with ${filteredJobs.length} matching opportunities!`;
+            document.getElementById('status').style.display = 'block';
+            
+            displayJobs(filteredJobs);
+        }
+
+        async function showAll() {
+            document.getElementById('keyword').value = '';
+            document.getElementById('location').value = '';
+            await searchJobs();
+        }
+
+        // Load data on page load
+        window.onload = async function() {
+            await loadInternshipsData();
+            document.getElementById('status').innerHTML = '✅ Real internship data loaded successfully! Try searching or click "Show All".';
+            document.getElementById('status').style.display = 'block';
+        };
+    </script>
+</body>
+</html>

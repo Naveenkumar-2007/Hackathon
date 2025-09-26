@@ -1,0 +1,68 @@
+JOHN SMITH
+Product Management Professional
+Email: john.smith@email.com | Phone: +91-9876543210
+LinkedIn: linkedin.com/in/johnsmith | Location: Bangalore, India
+
+PROFESSIONAL SUMMARY
+Results-driven Product Management professional with 2+ years of experience in market research, product strategy, and cross-functional team leadership. Proven track record in data analysis, user research, and agile product development. Seeking a Product Management internship to leverage analytical skills and business acumen.
+
+EDUCATION
+Master of Business Administration (MBA) - Marketing
+Indian Institute of Management, Bangalore (2023-2025)
+CGPA: 8.5/10
+
+Bachelor of Technology - Computer Science Engineering
+National Institute of Technology, Karnataka (2019-2023)
+CGPA: 8.2/10
+
+TECHNICAL SKILLS
+• Product Management: Market Research, Product Strategy, Roadmap Planning, User Story Writing
+• Analytics: SQL, Python, Excel, Google Analytics, Tableau, Power BI
+• Project Management: Agile, Scrum, JIRA, Trello, Asana
+• Design Tools: Figma, Adobe XD, Wireframing, Prototyping
+• Programming: Python, Java, JavaScript, HTML/CSS
+• Database: MySQL, PostgreSQL, MongoDB
+• Cloud Platforms: AWS, Google Cloud Platform
+
+PROFESSIONAL EXPERIENCE
+
+Product Management Intern | TechStartup India | Jun 2024 - Aug 2024
+• Conducted market research and competitive analysis for 3 product features, resulting in 25% increase in user engagement
+• Collaborated with engineering, design, and marketing teams to deliver 2 major product releases on schedule
+• Created and maintained product roadmap using JIRA, managing 15+ user stories and requirements
+• Performed data analysis using SQL and Python to identify user behavior patterns and product optimization opportunities
+• Facilitated daily standup meetings and sprint planning sessions for agile development process
+
+Business Analyst Intern | ConsultingCorp | Dec 2023 - Feb 2024
+• Analyzed business processes and requirements for digital transformation project worth $2M
+• Created detailed documentation and process flow diagrams for stakeholder communication
+• Conducted stakeholder interviews and gathered requirements for new CRM system implementation
+• Prepared executive presentations and reports for senior management review
+
+PROJECTS
+
+E-Commerce Product Recommendation System | Jan 2024 - Mar 2024
+• Developed machine learning-based recommendation engine using Python and collaborative filtering
+• Improved product discovery by 40% and increased average order value by 15%
+• Technologies: Python, scikit-learn, pandas, Flask, MySQL
+
+Mobile App Product Strategy | Sep 2023 - Nov 2023
+• Conducted comprehensive market analysis for fitness tracking mobile application
+• Defined target user personas through surveys and interviews with 200+ potential users
+• Created go-to-market strategy and pricing model resulting in successful app launch
+• Tools: Google Analytics, Surveys, Figma, Business Model Canvas
+
+CERTIFICATIONS
+• Google Analytics Individual Qualification (IQ)
+• Certified Scrum Product Owner (CSPO)
+• AWS Cloud Practitioner
+• HubSpot Content Marketing Certification
+
+ACHIEVEMENTS
+• Winner - Business Plan Competition, IIM Bangalore (2024)
+• Published research paper on "AI in Product Management" - International Journal of Technology Management
+• Led university team to 2nd place in National Product Management Case Study Competition
+• Volunteer coordinator for 50+ person tech community events
+
+INTERESTS
+Product Innovation, Market Research, Data Analytics, Technology Trends, Startup Ecosystem

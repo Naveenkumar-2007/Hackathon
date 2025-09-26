@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Search Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .results { margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px; }
+        .job { margin: 10px 0; padding: 10px; background: white; border-left: 4px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Internship Search API Test</h1>
+        
+        <div>
+            <label>Keyword: <input type="text" id="keyword" value="product management intern"></label>
+            <label>Location: <input type="text" id="location" value="india"></label>
+            <button onclick="testSearch()">Test Search</button>
+        </div>
+        
+        <div id="results" class="results" style="display:none;">
+            <h3>Results:</h3>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        async function testSearch() {
+            const keyword = document.getElementById('keyword').value;
+            const location = document.getElementById('location').value;
+            const resultsDiv = document.getElementById('results');
+            const outputDiv = document.getElementById('output');
+            
+            console.log('🔍 Testing search with:', keyword, location);
+            
+            try {
+                const url = `http://127.0.0.1:7000/search_jobs?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`;
+                console.log('📡 Fetching:', url);
+                
+                const response = await fetch(url);
+                console.log('📊 Response status:', response.status);
+                
+                const data = await response.json();
+                console.log('✅ Response data:', data);
+                
+                outputDiv.innerHTML = `
+                    <p><strong>Status:</strong> ${response.status} ✅</p>
+                    <p><strong>Jobs Found:</strong> ${data.jobs?.length || 0}</p>
+                    <div>
+                        ${(data.jobs || []).map(job => `
+                            <div class="job">
+                                <h4>${job.title}</h4>
+                                <p><strong>Company:</strong> ${job.company?.display_name || job.company}</p>
+                                <p><strong>Location:</strong> ${job.location?.display_name || job.location}</p>
+                                <p>${job.description}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                resultsDiv.style.display = 'block';
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                outputDiv.innerHTML = `<p style="color: red;"><strong>Error:</strong> ${error.message}</p>`;
+                resultsDiv.style.display = 'block';
+            }
+        }
+        
+        // Auto-run test on page load
+        window.onload = () => {
+            console.log('🚀 Page loaded, auto-testing in 2 seconds...');
+            setTimeout(testSearch, 2000);
+        };
+    </script>
+</body>
+</html>
