@@ -212,7 +212,7 @@ function App() {
             <div className="flex justify-center items-center space-x-4 text-sm text-gray-500">
               <span>Built with React + Flask</span>
               <span>•</span>
-              <span>Powered by Adzuna API</span>
+              <span>Powered by RapidAPI (Internships API)</span>
               <span>•</span>
               <span>AI-Driven Analysis</span>
             </div>

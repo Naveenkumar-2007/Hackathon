@@ -6,7 +6,8 @@ const ATSCheckPage = () => {
   const [formData, setFormData] = useState({
     skills: '',
     education: '',
-    location: 'india'
+    location: 'india',
+    domain: ''
   });
   const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +26,8 @@ const ATSCheckPage = () => {
       setFormData({
         skills: Array.isArray(profileData.skills) ? profileData.skills.join(', ') : profileData.skills || '',
         education: profileData.education || '',
-        location: profileData.location || 'india'
+        location: profileData.location || 'india',
+        domain: ''
       });
     }
   }, []);
@@ -99,6 +101,7 @@ const ATSCheckPage = () => {
       submitData.append('skills', formData.skills);
       submitData.append('education', formData.education);
       submitData.append('location', formData.location);
+  submitData.append('domain', formData.domain);
 
       // Add profile data if available
       const savedProfile = localStorage.getItem('userProfile');
@@ -275,6 +278,25 @@ const ATSCheckPage = () => {
                   </select>
                 </div>
 
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Internship Domain
+                  </label>
+                  <select
+                    name="domain"
+                    value={formData.domain}
+                    onChange={handleInputChange}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">Select Domain (optional)</option>
+                    <option value="product">Product</option>
+                    <option value="data">Data</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="design">Design</option>
+                    <option value="engineering">Engineering</option>
+                  </select>
+                </div>
+
                 <button
                   type="submit"
                   disabled={isLoading || !selectedFile}
@@ -379,6 +401,9 @@ const ATSCheckPage = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">
                       🎯 Personalized Internship Recommendations
                     </h3>
+                    {results.effective_search_keyword && (
+                      <p className="text-sm text-gray-500 mb-3">Search used: <span className="font-medium">{results.effective_search_keyword}</span></p>
+                    )}
                     <div className="space-y-4">
                       {results.recommendations.slice(0, 5).map((job, index) => (
                         <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-200">

@@ -13,7 +13,7 @@ const JobSearchPage = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [profile, setProfile] = useState({});
 
-  const API_BASE_URL = 'http://127.0.0.1:7000';
+  const API_BASE_URL = 'http://127.0.0.1:5002';
 
   // Popular internship search suggestions
   const popularSearches = [
@@ -81,7 +81,7 @@ const JobSearchPage = () => {
       const processedJobs = (data.jobs || []).map((job, index) => ({
         ...job,
         match_percent: job.match_percent || `${Math.floor(Math.random() * 30) + 70}%`,
-        apply_link: job.apply_link || job.redirect_url || `https://www.adzuna.co.in/jobs/search/internship?keyword=${encodeURIComponent(searchQuery.keyword)}`
+        apply_link: job.apply_link || job.redirect_url || job.url || '#'
       }));
       
       setJobs(processedJobs);
@@ -113,8 +113,9 @@ const JobSearchPage = () => {
           );
         }
         
-        setJobs(filteredJobs);
-        setError('Using offline data - Real-time internships available!');
+  setJobs(filteredJobs);
+  // Clarify that offline sample data is being used because live API call failed
+  setError('Realtime internships unavailable — showing offline sample data. If you have an API key, set it in the backend to enable live results.');
       } catch (staticErr) {
         console.error('Failed to load static data:', staticErr);
         setError('Failed to search jobs. Please try again.');
@@ -333,9 +334,24 @@ const JobSearchPage = () => {
                       <div className="text-sm text-gray-500">
                         <span className="font-medium">Internship Program</span>
                       </div>
-                      <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
-                        Apply Now
-                      </button>
+                      {job.apply_link && job.apply_link !== '#' ? (
+                        <a
+                          href={job.apply_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 inline-block"
+                        >
+                          Apply Now
+                        </a>
+                      ) : (
+                        <button
+                          disabled
+                          className="bg-gray-400 text-white px-6 py-2 rounded-lg font-semibold cursor-not-allowed"
+                          title="Apply link not available"
+                        >
+                          Apply Now
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}

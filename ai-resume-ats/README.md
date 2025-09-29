@@ -6,7 +6,7 @@ A full-stack web application that analyzes resumes using ATS (Applicant Tracking
 
 - **Resume Analysis**: Upload PDF/DOCX files and get ATS compatibility scores (0-100%)
 - **Keyword Extraction**: AI-powered keyword analysis using spaCy NLP
-- **Job Matching**: Real-time internship fetching from Adzuna API
+- **Job Matching**: Real-time internship fetching from RapidAPI (Internships API)
 - **Smart Recommendations**: TF-IDF and cosine similarity for job matching
 - **Mobile-First Design**: Responsive UI built with React and TailwindCSS
 - **Real-time Feedback**: Loading states, error handling, and progress indicators
@@ -24,7 +24,7 @@ A full-stack web application that analyzes resumes using ATS (Applicant Tracking
 - **spaCy** for natural language processing
 - **scikit-learn** for TF-IDF vectorization and similarity matching
 - **PyPDF2** and **python-docx** for document parsing
-- **Adzuna API** for job data
+- **RapidAPI (Internships API)** for job data
 - **Flask-CORS** for cross-origin requests
 
 ## 📁 Project Structure
@@ -97,10 +97,9 @@ ai-resume-ats/
    cp .env.example .env    # macOS/Linux
    ```
    
-   Edit `.env` file and add your Adzuna API credentials:
+   Edit `.env` file and add your RapidAPI key:
    ```
-   ADZUNA_APP_ID=your_app_id_here
-   ADZUNA_APP_KEY=your_app_key_here
+   RAPIDAPI_KEY=your_rapidapi_key_here
    FLASK_ENV=development
    FLASK_DEBUG=True
    ```
@@ -109,7 +108,7 @@ ai-resume-ats/
    ```bash
    python app.py
    ```
-   Server will run on `http://localhost:5000`
+   Server will run on `http://localhost:5002`
 
 ### Frontend Setup
 
@@ -131,7 +130,7 @@ ai-resume-ats/
    
    Edit `.env` file:
    ```
-   VITE_API_URL=http://localhost:5000
+   VITE_API_URL=http://localhost:3000
    ```
 
 4. **Run the development server**:
@@ -140,15 +139,14 @@ ai-resume-ats/
    ```
    Frontend will run on `http://localhost:3000`
 
-## 🌐 Getting Adzuna API Credentials
+## 🌐 Getting RapidAPI Credentials (Internships API)
 
-1. Visit [Adzuna Developer Portal](https://developer.adzuna.com/)
-2. Sign up for a free developer account
-3. Create a new application
-4. Copy your `APP_ID` and `APP_KEY`
-5. Add them to your `.env` file
+1. Visit https://rapidapi.com and sign in or sign up
+2. Search for the "Internships API" (host: internships-api.p.rapidapi.com)
+3. Subscribe to the API and copy your `X-RapidAPI-Key`
+4. Add it to `.env` as `RAPIDAPI_KEY`
 
-**Note**: The application includes fallback dummy data if the Adzuna API is unavailable.
+**Note**: The application includes fallback dummy data if the RapidAPI service is unavailable or your key is missing.
 
 ## 📱 How to Use
 
@@ -171,8 +169,7 @@ ai-resume-ats/
    - **Build Command**: `./render-build.sh`
    - **Start Command**: `gunicorn app:app`
 4. **Set environment variables**:
-   - `ADZUNA_APP_ID`: Your Adzuna app ID
-   - `ADZUNA_APP_KEY`: Your Adzuna app key
+   - `RAPIDAPI_KEY`: Your RapidAPI key (X-RapidAPI-Key)
 5. **Deploy**: Render will automatically build and deploy your app
 
 ### Frontend Deployment (Vercel)

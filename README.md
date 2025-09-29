@@ -4,7 +4,7 @@ A comprehensive AI-powered Resume Application Tracking System (ATS) with real-ti
 
 ## ✨ Features
 
-- **🔍 Real-time Internship Search** - Search thousands of internships using Adzuna API
+-- **🔍 Real-time Internship Search** - Search thousands of internships using RapidAPI (Internships API)
 - **📄 ATS Resume Analysis** - AI-powered resume scoring and optimization
 - **👤 Profile Management** - User profile creation and management
 - **🎯 Job Matching** - Intelligent job-resume matching with percentage scores
@@ -21,7 +21,7 @@ A comprehensive AI-powered Resume Application Tracking System (ATS) with real-ti
 
 ### Backend
 - **Python Flask** - Lightweight web framework
-- **Adzuna API** - Real job data integration
+-- **RapidAPI (Internships API)** - Real job data integration
 - **scikit-learn** - ML for resume analysis
 - **spaCy** - Natural language processing
 - **PyPDF2** - PDF text extraction
@@ -59,8 +59,8 @@ A comprehensive AI-powered Resume Application Tracking System (ATS) with real-ti
    ```
 
 4. **Access the Application**
-   - Frontend: http://localhost:3003
-   - Backend API: http://localhost:7000
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5002
 
 ## 🔧 Configuration
 
@@ -69,9 +69,8 @@ A comprehensive AI-powered Resume Application Tracking System (ATS) with real-ti
 Create `.env` files in the backend directory:
 
 ```env
-# Adzuna API credentials (get from https://developer.adzuna.com/)
-ADZUNA_APP_ID=your_app_id
-ADZUNA_APP_KEY=your_app_key
+# RapidAPI key (X-RapidAPI-Key) for internships API
+RAPIDAPI_KEY=your_rapidapi_key
 
 # Flask configuration
 FLASK_ENV=development
@@ -154,7 +153,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Adzuna API for providing job data
+- RapidAPI (Internships API) for providing job data
 - React and Flask communities
 - Open source contributors
 
